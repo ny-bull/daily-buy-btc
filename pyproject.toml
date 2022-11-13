@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "daily-buy-btc"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pysen = "^0.10.2"
+requests = "^2.28.1"
+python-dotenv = "^0.21.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pysen = {version = "^0.10.2", extras = ["lint"]}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.10"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 121
+py_version = "py310"
+
+[[tool.pysen.lint.mypy_targets]]
+paths = ["."]
