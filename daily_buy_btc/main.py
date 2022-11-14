@@ -9,7 +9,7 @@ from logging import DEBUG, getLogger
 import requests
 from dotenv import load_dotenv
 
-from daily_buy_btc.util.http import custom_get, custom_post
+from util.http import custom_get, custom_post
 
 load_dotenv()
 

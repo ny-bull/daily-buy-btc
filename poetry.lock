@@ -1,4 +1,12 @@
 [[package]]
+name = "altgraph"
+version = "0.17.3"
+description = "Python graph (network) package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "attrs"
 version = "22.1.0"
 description = "Classes Without Boilerplate"
@@ -96,6 +104,14 @@ pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
+name = "future"
+version = "0.18.2"
+description = "Clean single-source support for Python 3 and 2"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -124,6 +140,17 @@ pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
 requirements_deprecated_finder = ["pipreqs", "pip-api"]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
 plugins = ["setuptools"]
+
+[[package]]
+name = "macholib"
+version = "1.16.2"
+description = "Mach-O header analysis and editing"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+altgraph = ">=0.17"
 
 [[package]]
 name = "mccabe"
@@ -180,6 +207,17 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "pefile"
+version = "2022.5.30"
+description = "Python PE parsing module"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.dependencies]
+future = "*"
+
+[[package]]
 name = "platformdirs"
 version = "2.5.4"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -218,6 +256,33 @@ description = "passive checker of Python programs"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "pyinstaller"
+version = "5.6.2"
+description = "PyInstaller bundles a Python application and all its dependencies into a single package."
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+
+[package.dependencies]
+altgraph = "*"
+macholib = {version = ">=1.8", markers = "sys_platform == \"darwin\""}
+pefile = {version = ">=2022.5.30", markers = "sys_platform == \"win32\""}
+pyinstaller-hooks-contrib = ">=2021.4"
+pywin32-ctypes = {version = ">=0.2.0", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+encryption = ["tinyaes (>=1.0.0)"]
+hook_testing = ["pytest (>=2.7.3)", "execnet (>=1.5.0)", "psutil"]
+
+[[package]]
+name = "pyinstaller-hooks-contrib"
+version = "2022.13"
+description = "Community maintained hooks for PyInstaller"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "pyparsing"
@@ -274,6 +339,14 @@ python-versions = ">=3.7"
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "pywin32-ctypes"
+version = "0.2.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "requests"
 version = "2.28.1"
 description = "Python HTTP for Humans."
@@ -322,10 +395,11 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "f000b41a42a6d60517a4d23ccefbee6e080df0ca1e3617a656e62aaee7be9c10"
+python-versions = "^3.10,<3.11"
+content-hash = "ff9c79be0ce812c933f203d94f3a48be525ea0082aba00096e2ac3892ac2822a"
 
 [metadata.files]
+altgraph = []
 attrs = []
 black = []
 certifi = []
@@ -334,22 +408,28 @@ click = []
 colorama = []
 exceptiongroup = []
 flake8 = []
+future = []
 idna = []
 iniconfig = []
 isort = []
+macholib = []
 mccabe = []
 mypy = []
 mypy-extensions = []
 packaging = []
 pathspec = []
+pefile = []
 platformdirs = []
 pluggy = []
 pycodestyle = []
 pyflakes = []
+pyinstaller = []
+pyinstaller-hooks-contrib = []
 pyparsing = []
 pyproject-flake8 = []
 pytest = []
 python-dotenv = []
+pywin32-ctypes = []
 requests = []
 tomli = []
 typing-extensions = []
