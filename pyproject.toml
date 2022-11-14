@@ -6,29 +6,39 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pysen = "^0.10.2"
 requests = "^2.28.1"
 python-dotenv = "^0.21.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-pysen = {version = "^0.10.2", extras = ["lint"]}
+pytest = "^7.2.0"
+flake8 = "^5.0.4"
+black = "^22.10.0"
+isort = "^5.10.1"
+mypy = "^0.990"
+pyproject-flake8 = "^5.0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.pysen]
-version = "0.10"
+[tool.black]
+target-version = ["py310"]
+line-length = 112
 
-[tool.pysen.lint]
-enable_black = true
-enable_flake8 = true
-enable_isort = true
-enable_mypy = true
-mypy_preset = "strict"
-line_length = 121
-py_version = "py310"
+[tool.isort]
+line_length = 112
+multi_line_output = 3
+include_trailing_comma = true
+known_local_folder=['config',]
 
-[[tool.pysen.lint.mypy_targets]]
-paths = ["."]
+[tool.mypy]
+python_version = "3.9"
+no_strict_optional = true
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.flake8]
+max-line-length = 112
+max-complexity = 18
+ignore = "E203,E266,W503,"
+exclude = ['.venv','__pycache__']
